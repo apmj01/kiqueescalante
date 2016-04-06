@@ -92,6 +92,15 @@ margin: auto;
   height: auto;
 }
 
+.owl-genclass .item{
+  margin: 3px;
+}
+.owl-genclass .item img{
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
 #owl-demo-1 .item{
   margin: 3px;
 }
