@@ -245,6 +245,12 @@ color: #ECEBEB;
 	font-weight: 400 !important;
 }
 
+.navbar-logo {
+	margin: 14px;
+	max-width: 75%;
+	height: auto;
+}
+
 .lead {
 	font-size: 16px;
 	font-weight: 400;
