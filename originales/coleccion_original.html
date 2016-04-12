@@ -4,8 +4,7 @@
 <!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
 <!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
 <!--[if IE 9]>    <html class="no-js ie9" lang="en"> <![endif]-->
-<!--[if gt IE 9]><!--> 
-<html> <!--<![endif]-->
+<!--[if gt IE 9]><!--> <html> <!--<![endif]-->
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
@@ -34,6 +33,7 @@
 	
 	<!-- Magnific Popup core CSS file -->
 	<link rel="stylesheet" href="css/magnific-popup.css"> 
+	
 	<script src="js/modernizr-2.8.3.min.js"></script>  <!-- Modernizr /-->
 	<!--[if IE 9]>
 		<script src="js/PIE_IE9.js"></script>
@@ -45,57 +45,7 @@
 	<!--[if lt IE 9]>
 		<script src="js/html5shiv.js"></script>
 	<![endif]-->
-    <script src="js/jquery-1.10.2.js"></script>
-	<script type="text/javascript">
-		jQuery(function($) {
-			var url = "";
-			url = "menu.html";
-			// Inclusion del menu
-			$.ajax({
-		        url: url,
-		        type:'POST',
-		        dataType: 'html',
-		        success: function(res){
-		                	$("#menu").append(res);
-		                }
-			});
-		});
-		// Funciones para peticiones a controlador php
-		function view(view){
-			var str = this.location.toString();
-			var peticion = "";
-			url = "./php/controlador/index.php";
-			if(str.indexOf('index.html')>=0){	
-				// window.location.replace("main.html?"+url);
-				peticion = "index=true&view="+view;
-				$.ajax({
-			        url:url,
-			        type:'POST',
-			        dataType: 'html',
-			        data: peticion,
-			        success: function(res){
-		                		$(".intro-header").remove();
-			                	$("#screen").empty();
-			                	$("#screen").attr("style","style='margin-top: 0px;'");
-			                	$("#screen").append(res);
-			                	$('.navbar-default').stickUp();
-			                }
-				});
-			}else{
-				peticion = "view="+view;
-				$.ajax({
-			        url:url,
-			        type:'POST',
-			        dataType: 'html',
-			        data: peticion,
-			        success: function(res){
-			                	$("#screen").append("");
-			                	$("#screen").append(res);
-			                }
-				});
-			}
-		}
-	</script>
+
 </head>
 
 <body id="home">
@@ -105,70 +55,164 @@
 		<div id="status"></div>
 	</div>
 	
-	<!-- FullScreen -->
-    <div class="intro-header">
-		   
-        <!-- /.container -->
-		<div class="col-xs-12 text-center abcen wow fadeIn">
-			<div class="button_down "> 
-				<a class="imgcircle wow bounceInUp" data-wow-duration="1.5s"  href="#screen"> <img class="img_scroll" src="img/icon/circle.png" alt=""> </a>
-			</div>
-		</div>
-    </div>
-	
 	<!-- NavBar-->
-	<nav id="menu" class="navbar-default" role="navigation"></nav> 
-
+	<nav class="navbar-default" role="navigation">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="index.html">Kique Escalante</a>
+			</div>
+			<div class="collapse navbar-collapse navbar-right navbar-ex1-collapse">
+				<ul class="nav navbar-nav">
+					<li class="menuItem"><a href="coleccion.html">Colecciones</a></li>					
+					<li class="menuItem"><a href="proceso.html">Proceso</a></li>
+					<li class="menuItem"><a href="contacto.html">Contacto</a></li>
+					<li class="social"> <a href="https://www.facebook.com/KiqueEscalante"><i class="fa fa-facebook-square fa-size"> </i></a></li>
+					<li class="social"><a href="#"><i class="fa  fa-twitter-square fa-size"> </i> </a> </li>
+					<li class="social"><a href="#"><i class="fa  fa-instagram fa-size"> </i> </a> </li>	
+				</ul>
+			</div>  
+		</div>
+	</nav> 
+	
 	<!-- Screenshot -->
 	<div id="screen" class="content-section">
         <div class="container">
+        <!-- Fila 1 -->
           <div class="row" >
 			 <div class="col-md-6 col-md-offset-3 text-center wrap_title ">
-				<h2>Screen App</h2>
+				<h2>Colección 1</h2>
 				<p class="lead" style="margin-top:0">A special thanks to Death.</p>
 			 </div>
 		  </div>
 		    <div class="row wow bounceInUp" >
               <div id="owl-demo" class="owl-carousel">
 				
-				<a href="img/slide/1.png" class="image-link">
+				<a href="./php/controlador/coleccion.php?html=1" class="simple-ajax-popup-align-top">
 					<div class="item">
 						<img  class="img-responsive img-rounded" src="img/slide/1.png" alt="Owl Image">
 					</div>
 				</a>
 				
-               <a href="img/slide/2.png" class="image-link">
+               <a href="./php/controlador/coleccion.php?html=2" class="simple-ajax-popup-align-top">
 					<div class="item">
 						<img  class="img-responsive img-rounded" src="img/slide/2.png" alt="Owl Image">
 					</div>
 				</a>
 				
-				<a href="img/slide/3.png" class="image-link">
+				<a href="./php/controlador/coleccion.php?html=3" class="simple-ajax-popup-align-top">
+					<div class="item">
+						<img  class="img-responsive img-rounded" src="img/slide/3.png" alt="Owl Image">
+					</div>
+				</a>				
+				
+              </div>       
+          </div>
+
+          <!-- Fila 2 -->
+          <div class="row" >
+			 <div class="col-md-6 col-md-offset-3 text-center wrap_title ">
+				<h2>Colección 2</h2>
+				<p class="lead" style="margin-top:0">A special thanks to Death.</p>
+			 </div>
+		  </div>
+		    <div class="row wow bounceInUp" >
+              <div  class="owl-genclass">
+				
+				<a href="./php/controlador/coleccion.php?html=1" class="simple-ajax-popup-align-top">
+					<div class="item">
+						<img  class="img-responsive img-rounded" src="img/slide/1.png" alt="Owl Image">
+					</div>
+				</a>
+				
+               <a href="./php/controlador/coleccion.php?html=2" class="simple-ajax-popup-align-top">
+					<div class="item">
+						<img  class="img-responsive img-rounded" src="img/slide/2.png" alt="Owl Image">
+					</div>
+				</a>
+				
+				<a href="./php/controlador/coleccion.php?html=3" class="simple-ajax-popup-align-top">
 					<div class="item">
 						<img  class="img-responsive img-rounded" src="img/slide/3.png" alt="Owl Image">
 					</div>
 				</a>
 				
-				<a href="img/slide/1.png" class="image-link">
+				<a href="./php/controlador/coleccion.php?html=1" class="simple-ajax-popup-align-top">
 					<div class="item">
 						<img  class="img-responsive img-rounded" src="img/slide/1.png" alt="Owl Image">
 					</div>
 				</a>
 				
-               <a href="img/slide/2.png" class="image-link">
+               <a href="./php/controlador/coleccion.php?html=2" class="simple-ajax-popup-align-top">
 					<div class="item">
 						<img  class="img-responsive img-rounded" src="img/slide/2.png" alt="Owl Image">
 					</div>
 				</a>
 				
-				<a href="img/slide/3.png" class="image-link">
+				<a href="./php/controlador/coleccion.php?html=3" class="simple-ajax-popup-align-top">
 					<div class="item">
 						<img  class="img-responsive img-rounded" src="img/slide/3.png" alt="Owl Image">
 					</div>
 				</a>
               </div>       
           </div>
-        </div>     			
+
+          <!-- Fila 2 -->
+          <div class="row" >
+			 <div class="col-md-6 col-md-offset-3 text-center wrap_title ">
+				<h2>Colección 3</h2>
+				<p class="lead" style="margin-top:0">A special thanks to Death.</p>
+			 </div>
+		  </div>
+		    <div class="row wow bounceInUp" >
+              <div  class="owl-genclass">
+				
+				<a href="./php/controlador/coleccion.php?html=1" class="simple-ajax-popup-align-top">
+					<div class="item">
+						<img  class="img-responsive img-rounded" src="img/slide/1.png" alt="Owl Image">
+					</div>
+				</a>
+				
+               <a href="./php/controlador/coleccion.php?html=2" class="simple-ajax-popup-align-top">
+					<div class="item">
+						<img  class="img-responsive img-rounded" src="img/slide/2.png" alt="Owl Image">
+					</div>
+				</a>
+				
+				<a href="./php/controlador/coleccion.php?html=3" class="simple-ajax-popup-align-top">
+					<div class="item">
+						<img  class="img-responsive img-rounded" src="img/slide/3.png" alt="Owl Image">
+					</div>
+				</a>
+				
+				<a href="./php/controlador/coleccion.php?html=1" class="simple-ajax-popup-align-top">
+					<div class="item">
+						<img  class="img-responsive img-rounded" src="img/slide/1.png" alt="Owl Image">
+					</div>
+				</a>
+				
+               <a href="./php/controlador/coleccion.php?html=2" class="simple-ajax-popup-align-top">
+					<div class="item">
+						<img  class="img-responsive img-rounded" src="img/slide/2.png" alt="Owl Image">
+					</div>
+				</a>
+				
+				<a href="./php/controlador/coleccion.php?html=3" class="simple-ajax-popup-align-top">
+					<div class="item">
+						<img  class="img-responsive img-rounded" src="img/slide/3.png" alt="Owl Image">
+					</div>
+				</a>
+              </div>       
+          </div>
+
+
+        </div>     
+			
 	</div>
 
 		
@@ -176,10 +220,10 @@
       <div class="container">
         <div class="row">
           <div class="col-md-7">
-            <h3 class="footer-title">Follow Me!</h3>
-            <p>Vuoi ricevere news su altri template?<br/>
-              Visita Andrea Galanti.it e vedrai tutte le news riguardanti nuovi Theme!<br/>
-              Go to: <a  href="http://andreagalanti.it" target="_blank">andreagalanti.it</a>
+            <h3 class="footer-title">Kique Escalante</h3>
+            <p>Diseño de modas<br/>
+              Visita con frecuencia nuestra página web para ver nuestras novedades!<br/>
+              Go to: <a  href="http://kiqueescalante.com" target="_blank">kiqueescalante.com</a>
             </p>
 			
 			<!-- LICENSE -->
@@ -213,17 +257,20 @@
     </footer>
 
     <!-- JavaScript -->
+    <script src="js/jquery-1.10.2.js"></script>
     <script src="js/bootstrap.js"></script>
 	<script src="js/owl.carousel.js"></script>
 	<script src="js/script.js"></script>
 	<!-- StikyMenu -->
 	<script src="js/stickUp.min.js"></script>
 	<script type="text/javascript">
-		jQuery(function($) {	
-			$(document).ready( function() {
-			  $('.navbar-default').stickUp();
-			});
-		  });
+	  jQuery(function($) {
+		$(document).ready( function() {
+		  $('.navbar-default').stickUp();
+		  
+		});
+	  });
+	
 	</script>
 	<!-- Smoothscroll -->
 	<script type="text/javascript" src="js/jquery.corner.js"></script> 
