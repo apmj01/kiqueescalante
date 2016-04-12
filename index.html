@@ -65,36 +65,21 @@
 			var str = this.location.toString();
 			var peticion = "";
 			url = "./php/controlador/index.php";
-			if(str.indexOf('index.html')>=0){	
-				// window.location.replace("main.html?"+url);
-				peticion = "index=true&view="+view;
-				$.ajax({
-			        url:url,
-			        type:'POST',
-			        dataType: 'html',
-			        data: peticion,
-			        success: function(res){
-		                		$(".intro-header").remove();
-			                	$("#screen").empty();
-			                	$("#screen").attr("style","style='margin-top: 0px;'");
-			                	$("#screen").append(res);
-			                	$('.navbar-default').stickUp();
-			                	window.scrollTo(0, 0);
-			                }
-				});
-			}else{
-				peticion = "view="+view;
-				$.ajax({
-			        url:url,
-			        type:'POST',
-			        dataType: 'html',
-			        data: peticion,
-			        success: function(res){
-			                	$("#screen").append("");
-			                	$("#screen").append(res);
-			                }
-				});
-			}
+			peticion = "index=true&view="+view;
+			$.ajax({
+		        url:url,
+		        type:'POST',
+		        dataType: 'html',
+		        data: peticion,
+		        success: function(res){
+	                		$(".intro-header").remove();
+		                	$("#screen").empty();
+		                	$("#screen").attr("style","style='margin-top: 0px;'");
+		                	$("#screen").append(res);
+		                	$('.navbar-default').stickUp();
+		                	window.scrollTo(0, 0);
+		                }
+			});
 		}
 	</script>
 </head>
